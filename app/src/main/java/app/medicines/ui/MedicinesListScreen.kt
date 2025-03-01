@@ -1,5 +1,6 @@
 package app.medicines.ui
 
+import androidx.compose.foundation.layout.Column
 import androidx.compose.foundation.layout.fillMaxSize
 import androidx.compose.foundation.layout.padding
 import androidx.compose.foundation.lazy.LazyColumn
@@ -35,18 +36,22 @@ fun MedicinesListScreen(
             )
         }
     ) { innerPadding ->
-        Text("Medicines List",
+        Column(
             modifier = Modifier
-                .semantics { heading() }
                 .padding(innerPadding),
-        )
-        LazyColumn {
-            items(
-                items = medicineListUiState.medicineList,
-                key = null,
-            ) {
-                medicine ->
-                Text(medicine.name)
+        ) {
+            Text(
+                "Medicines List",
+                modifier = Modifier
+                    .semantics { heading() },
+            )
+            LazyColumn {
+                items(
+                    items = medicineListUiState.medicineList,
+                    key = null,
+                ) { medicine ->
+                    Text(medicine.name)
+                }
             }
         }
     }

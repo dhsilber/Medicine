@@ -36,6 +36,10 @@ class MedicinesListScreenTest {
         composable
             .onNodeWithText("Medicine One")
             .assertIsDisplayed()
+
+        composable
+            .onNodeWithText("Medicine Two")
+            .assertIsDisplayed()
 //            .assertHasClickAction()
 //            .performClick()
     }

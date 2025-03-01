@@ -7,7 +7,6 @@ import androidx.navigation.compose.NavHost
 import androidx.navigation.compose.composable
 import androidx.navigation.compose.rememberNavController
 import app.medicines.data.MedicineRepository
-import app.medicines.data.MedicineRepositoryFunctionality
 import kotlinx.serialization.Serializable
 
 @Serializable

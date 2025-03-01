@@ -44,7 +44,6 @@ class MedicineCreateScreenTest {
             .onNodeWithText("Save")
             .assertIsDisplayed()
             .assertHasClickAction()
-
     }
 
     @Test
@@ -73,8 +72,6 @@ class MedicineCreateScreenTest {
         composable
             .onNodeWithText("Medicine name")
             .assertTextContains(testText)
-//            .assertTextContains("]Aspirin")
-//            .assertTextEquals("[Medicine name]Aspirin")
 
         composable
             .onNodeWithText("Save")
