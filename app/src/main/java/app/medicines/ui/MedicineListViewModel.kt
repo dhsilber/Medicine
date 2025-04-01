@@ -2,6 +2,7 @@ package app.medicines.ui
 
 import androidx.lifecycle.ViewModel
 import androidx.lifecycle.viewModelScope
+import app.medicines.data.Constants.TIMEOUT_MILLIS
 import app.medicines.data.Medicine
 import app.medicines.data.MedicineRepository
 import kotlinx.coroutines.flow.SharingStarted
@@ -19,11 +20,6 @@ class MedicineListViewModel(
                 started = SharingStarted.WhileSubscribed(TIMEOUT_MILLIS),
                 initialValue = MedicineListUiState(),
             )
-
-    companion object {
-        private const val TIMEOUT_MILLIS = 5_000L
-    }
-
 }
 
 data class MedicineListUiState(val medicineList: List<Medicine> = listOf())

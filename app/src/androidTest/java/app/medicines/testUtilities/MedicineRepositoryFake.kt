@@ -8,13 +8,16 @@ import kotlinx.coroutines.flow.flowOf
 
 class MedicineRepositoryFake : MedicineRepository {
     override suspend fun insertMedicine(medicine: Medicine) {
-        TODO("Not yet implemented")
     }
 
     override fun getAllMedicinesStream(): Flow<List<Medicine>> {
         return flowOf(listOf(
-            Medicine("Medicine One"),
-            Medicine("Medicine Two")
+            Medicine(name = "Medicine One"),
+            Medicine(name = "Medicine Two")
         ))
     }
+
+//    override fun getById(id: Int): Flow<Medicine> {
+//        TODO("Not yet implemented")
+//    }
 }

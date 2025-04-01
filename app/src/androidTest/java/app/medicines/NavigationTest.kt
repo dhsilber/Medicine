@@ -11,6 +11,7 @@ import androidx.navigation.compose.ComposeNavigator
 import androidx.navigation.testing.TestNavHostController
 import app.medicines.testUtilities.MedicineRepositoryFake
 import app.medicines.ui.Navigation
+import junit.framework.TestCase.fail
 import kotlinx.coroutines.test.runTest
 import org.junit.Before
 import org.junit.Rule
@@ -23,11 +24,13 @@ class NavigationTest {
 
     @Before
     fun setup() {
+
+        fail()
         composeRule.setContent {
             navController = TestNavHostController(LocalContext.current)
             navController.navigatorProvider.addNavigator(ComposeNavigator())
             Navigation(
-                medicineRepository = MedicineRepositoryFake(),
+//                medicineRepository = MedicineRepositoryFake(),
                 navController = navController,
                 )
         }
@@ -82,4 +85,28 @@ class NavigationTest {
             .onNodeWithContentDescription("Add new medicine")
             .assertIsDisplayed()
     }
+
+    @Test
+    fun `Tapping on a ListScreen medicine navigates to edit screen`() = runTest {
+        composeRule
+            .onNodeWithText("Medicine Two")
+            .performClick()
+
+        composeRule
+            .onNodeWithText("Delete")
+            .assertIsDisplayed()
+            .assertHasClickAction()
+
+        composeRule
+            .onNodeWithText("Save")
+            .assertIsDisplayed()
+            .assertHasClickAction()
+
+        composeRule
+            .onNodeWithText("Cancel")
+            .assertIsDisplayed()
+            .assertHasClickAction()
+
+    }
+
 }

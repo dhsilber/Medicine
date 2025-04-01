@@ -11,17 +11,21 @@ import androidx.compose.material3.FloatingActionButton
 import androidx.compose.material3.Icon
 import androidx.compose.material3.Scaffold
 import androidx.compose.material3.Text
+import androidx.compose.material3.TextButton
 import androidx.compose.runtime.Composable
 import androidx.compose.runtime.collectAsState
 import androidx.compose.runtime.getValue
 import androidx.compose.ui.Modifier
 import androidx.compose.ui.semantics.heading
 import androidx.compose.ui.semantics.semantics
+import androidx.lifecycle.viewmodel.compose.viewModel
+import app.medicines.data.Medicine
 
 @Composable
 fun MedicinesListScreen(
     navigateToCreate: () -> Unit,
-    medicineListViewModel: MedicineListViewModel,
+    navigateToEdit: (medicineId: Int) -> Unit,
+    medicineListViewModel: MedicineListViewModel = viewModel(factory = AppViewModelProvider.Factory),
 ) {
     val medicineListUiState by medicineListViewModel.medicineListUiState.collectAsState()
 
@@ -50,7 +54,13 @@ fun MedicinesListScreen(
                     items = medicineListUiState.medicineList,
                     key = null,
                 ) { medicine ->
-                    Text(medicine.name)
+                    TextButton(
+                        onClick = {
+                            navigateToEdit(medicine.id)
+                        }
+                    ) {
+                        Text(medicine.name)
+                    }
                 }
             }
         }

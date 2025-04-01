@@ -8,16 +8,13 @@
       <SelectionState runConfigName="Tests in 'app.medicines'">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="Create click passes text to viewModel create()">
+      <SelectionState runConfigName="List of medicines is displayed()">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="has buttons()">
+      <SelectionState runConfigName="MedicinesListScreenTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
-      <SelectionState runConfigName="NavigationTest">
-        <option name="selectionMode" value="DROPDOWN" />
-      </SelectionState>
-      <SelectionState runConfigName="MedicineCreateScreenTest">
+      <SelectionState runConfigName="MedicineEditScreenTest">
         <option name="selectionMode" value="DROPDOWN" />
       </SelectionState>
     </selectionStates>
